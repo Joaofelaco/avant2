@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Avant Consultoria Automotiva</title>
+<meta name="description" content="Carros econômicos e confiáveis, conferidos antes da compra, com parcela simulada e atendimento direto pelo WhatsApp.">
+<meta name="theme-color" content="#0B0F12">
+<script>document.documentElement.classList.add("js")</script>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Avant Consultoria Automotiva">
+<meta property="og:title" content="Avant Consultoria Automotiva | Carros selecionados com parcela simulada">
+<meta property="og:description" content="Carros econômicos e confiáveis, conferidos antes da compra. Fale com um consultor direto no WhatsApp.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Falta o og:image: adicionar com a URL pública da imagem de capa (1200x630) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Plus Jakarta Sans"','system-ui','-apple-system','Segoe UI','sans-serif']}}}}</script>
+<style>
+:root{--bg:#0B0F12;--surface:#12161A;--line:rgba(201,209,216,.14);--silver:#c9d1d8;--text:#e9edf0;--muted:#8d97a0;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.glass{background:rgba(18,22,26,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line)}
+.silver{background:linear-gradient(135deg,#f6f8fa 0%,#a3acb4 38%,#eef1f3 55%,#7d868e 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brushed{background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.014) 0 1px,transparent 1px 3px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:.75rem;font-weight:600;font-size:.9rem;padding:.8rem 1.25rem;transition:background .25s,box-shadow .25s,border-color .25s,transform .25s;cursor:pointer}
+.btn-outline{border:1px solid rgba(201,209,216,.4);color:var(--text)}
+.btn-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(231,236,240,.75);box-shadow:0 0 24px rgba(220,230,240,.12)}
+.btn-solid{background:linear-gradient(135deg,#f1f4f6,#aab3bb);color:#0B0F12;border:1px solid transparent}
+.btn-solid:hover{box-shadow:0 0 28px rgba(230,238,245,.28);transform:translateY(-1px)}
+.field{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:.75rem;color:var(--text);padding:.8rem 1rem;width:100%;font:inherit;font-size:.9rem}
+.field option{background:#12161A}
+:focus-visible{outline:2px solid #dfe6ec;outline-offset:2px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;font-size:.85rem;color:var(--muted);transition:all .2s;cursor:pointer;background:transparent;font-family:inherit}
+.chip:hover{color:var(--text);border-color:rgba(201,209,216,.5)}
+.chip[aria-pressed="true"]{color:#0B0F12;background:linear-gradient(135deg,#f1f4f6,#aab3bb);border-color:transparent}
+.car-line{stroke:url(#sg);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%);transform:translateX(-120%);animation:sweep 2.4s .5s ease-out 1 forwards;pointer-events:none}
+@keyframes sweep{to{transform:translateX(120%)}}
+@media (prefers-reduced-motion:reduce){.sweep{animation:none;opacity:0}html{scroll-behavior:auto}.btn,.chip{transition:none}}
+[hidden]{display:none!important}header nav a[aria-current="page"]{color:#fff;box-shadow:0 1px 0 #c9d1d8}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.lb{display:block;margin-bottom:.4rem;font-size:.75rem;color:var(--muted)}
+.shine{background:linear-gradient(100deg,#aeb7bf 0%,#eef2f5 25%,#fff 40%,#8e98a1 58%,#e9edf0 78%,#aeb7bf 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,72%) var(--my,18%),rgba(225,233,242,.10),transparent 60%)}
+.btn-solid{position:relative;overflow:hidden}
+.btn-solid::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.6) 50%,transparent 65%);transform:translateX(-120%)}
+.btn-solid:hover::after{transform:translateX(120%);transition:transform .7s}
+.card{transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+.card:hover,.card:focus-within{transform:translateY(-6px) scale(1.035);z-index:5;border-color:rgba(220,228,236,.35);box-shadow:0 22px 56px -18px rgba(210,222,235,.32)}
+.ph{isolation:isolate}
+.ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.15) 50%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.card:hover .ph::before,.card:focus-within .ph::before{transform:translateX(120%);transition:transform .9s ease}
+.ph::after{content:"";position:absolute;inset:0;z-index:2;padding:1.5px;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:conic-gradient(from var(--a),transparent 0 62%,#9aa3ab 80%,#fff 92%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask-composite:exclude;animation:spin 2.6s linear infinite}
+.card:hover .ph::after,.card:focus-within .ph::after{opacity:1}
+@keyframes spin{to{--a:360deg}}
+.vcar{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .vcar{transform:translateX(10px) scale(1.06)}
+.rise{animation:rise .6s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+dialog{background:#12161A;color:var(--text);border:1px solid var(--line);border-radius:1.25rem;padding:0;width:calc(100% - 2rem);max-width:560px;margin:auto}
+dialog[open]{animation:rise .35s ease backwards}
+dialog::backdrop{background:rgba(5,8,10,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion:reduce){.shine,.rise,.ph::after,dialog[open]{animation:none}.shine{background-position:30% 0}.card,.vcar{transition:none}}
+.card{cursor:pointer}
+.sl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease}
+.sl.on{opacity:1}
+.dots{position:absolute;bottom:.65rem;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dt{display:block;width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.3);transition:all .3s}
+.dt.on{background:#fff;width:16px}
+.ph.gm:hover::after{opacity:1}
+.ph.gm:hover::before{transform:translateX(120%);transition:transform .9s ease}
+.thb{aspect-ratio:16/10;border:1px solid var(--line);border-radius:.6rem;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s;padding:.35rem}
+.thb:hover{border-color:rgba(220,228,236,.5)}
+.thb[aria-current="true"]{border-color:#dfe6ec;box-shadow:0 0 18px rgba(220,230,240,.18)}
+.arw{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:2.5rem;height:2.5rem;border-radius:99px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);transition:background .25s}
+.arw:hover{background:rgba(255,255,255,.14)}
+/* ===== Movimento ===== */
+/* Hero: esferas de luz à deriva, carro flutuando e painel inclinando com o mouse */
+.orb{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none;background:radial-gradient(circle,rgba(190,205,225,.20),transparent 65%);animation:drift 14s ease-in-out infinite alternate}
+.orb.o1{width:420px;height:420px;left:-140px;top:18%}
+.orb.o2{width:360px;height:360px;right:-120px;bottom:-80px;animation-duration:19s;animation-delay:-7s}
+@keyframes drift{to{transform:translate(70px,-46px) scale(1.18)}}
+.hero-car{transform:perspective(900px) rotateY(calc(var(--px,0)*9deg)) rotateX(calc(var(--py,0)*-7deg));transition:transform .5s ease-out;will-change:transform}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -10px}}
+
+/* Cabeçalho compacto ao rolar, barra de progresso e sublinhado animado no menu */
+header{transition:background-color .35s,box-shadow .35s}
+header.sc{background:rgba(11,15,18,.84);box-shadow:0 12px 32px -20px rgba(0,0,0,.9)}
+.hbar{transition:height .35s ease}
+header.sc .hbar{height:4rem}
+#sp{position:absolute;left:0;right:0;bottom:-1px;height:2px;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,#6f7a84,#fff,#9aa3ab);pointer-events:none}
+header nav:not(#mm) a{background:linear-gradient(#c9d1d8,#c9d1d8) left 100%/0 1px no-repeat;transition:background-size .35s ease,color .2s}
+header nav:not(#mm) a:hover{background-size:100% 1px}
+
+/* Troca de página e entrada dos blocos ao rolar */
+main>section:not([hidden]){animation:viewin .55s ease backwards}
+@keyframes viewin{from{opacity:0;transform:translateY(10px)}}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* Microinterações */
+.field{transition:border-color .25s,box-shadow .25s,background .25s}
+.field:focus{border-color:rgba(223,230,236,.55);box-shadow:0 0 0 4px rgba(223,230,236,.07);background:rgba(255,255,255,.06)}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(.92)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
+.perk{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.perk:hover{transform:translateX(8px)}
+.pulse{animation:pulse 2.6s ease-out infinite}
+.pulse:hover{animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,238,245,.38)}70%{box-shadow:0 0 0 18px rgba(230,238,245,0)}100%{box-shadow:0 0 0 0 rgba(230,238,245,0)}}
+.bump{animation:bump .5s ease}
+@keyframes bump{40%{transform:scale(1.04)}}
+footer a{transition:transform .25s,color .25s}
+footer a:hover{transform:translateX(4px)}
+.sl img{transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.sl.on img{transform:scale(1)}
+.gm .sl.on .vcar{animation:drive 6s ease-in-out infinite alternate}
+@keyframes drive{from{translate:-8px 0}to{translate:8px 0}}
+
+/* Curadoria: carrossel automático (centro maior, laterais menores e com blur leve) */
+.cs{position:relative;display:grid;justify-items:center;align-items:center;overflow:hidden;padding:2rem 0 2.5rem;--cw:min(370px,76vw);--step:calc(var(--cw)*.96);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.cs-item{grid-area:1/1;width:var(--cw);will-change:transform;transition:transform .9s cubic-bezier(.22,.8,.2,1),opacity .9s ease,filter .9s ease,visibility 0s .9s}
+.cs-item[data-pos="0"]{transform:translateX(0) scale(1);filter:none;opacity:1;z-index:3;visibility:visible;transition-delay:0s}
+.cs-item[data-pos="-1"]{transform:translateX(calc(var(--step)*-1)) scale(.8);filter:blur(2.5px) saturate(.85);opacity:.6;z-index:2;visibility:visible;transition-delay:0s;cursor:pointer}
+.cs-item[data-pos="1"]{transform:translateX(var(--step)) scale(.8);filter:blur(2.5px) saturate(.85);opacity:.6;z-index:2;visibility:visible;transition-delay:0s;cursor:pointer}
+.cs-item[data-pos="-1"]:hover,.cs-item[data-pos="1"]:hover{opacity:.85;filter:blur(1px) saturate(.95)}
+.cs-item[data-pos="x"]{transform:scale(.7);opacity:0;visibility:hidden;z-index:1;pointer-events:none}
+.cs-ctl{display:flex;align-items:center;justify-content:center;gap:1rem}
+.cs-btn{width:2.5rem;height:2.5rem;border-radius:99px;display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;transition:background .25s,transform .25s}
+.cs-btn:hover{background:rgba(255,255,255,.14);transform:scale(1.08)}
+.cs-dots{display:flex;gap:8px;align-items:center}
+.cd{position:relative;width:10px;height:10px;border-radius:99px;background:rgba(255,255,255,.26);overflow:hidden;border:0;padding:0;cursor:pointer;transition:width .45s cubic-bezier(.2,.8,.2,1),background .3s}
+.cd:hover{background:rgba(255,255,255,.45)}
+.cd.on{width:38px}
+.cd i{position:absolute;inset:0;background:#fff;border-radius:inherit;transform:scaleX(0);transform-origin:left}
+.cd.on i{animation:csfill var(--cs-ms,4200ms) linear forwards}
+@keyframes csfill{to{transform:scaleX(1)}}
+.cs-wrap.paused .cd.on i{animation-play-state:paused}
+
+.btn:active{transform:scale(.97)}
+
+@media (prefers-reduced-motion:reduce){
+  .orb,.floaty,.pulse,.bump,.gm .sl.on .vcar,main>section,.chip[aria-pressed="true"]{animation:none!important}
+  .hero-car{transform:none!important;transition:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .cs-item{transition-duration:.01s}
+  .cd.on i{animation:none;transform:scaleX(1)}
+  .sl img{transition:none;transform:none}
+  header,.hbar,.perk,footer a,.cs-btn,.field,#sp{transition:none}
+}
+.bs{-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:linear-gradient(90deg,#dfe6ec var(--pct,40%),rgba(255,255,255,.12) var(--pct,40%));outline-offset:8px;cursor:pointer}
+.bs::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#fff,#9aa3ab);border:0;box-shadow:0 0 0 4px rgba(223,230,236,.18),0 2px 10px rgba(0,0,0,.5)}
+.bs::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#fff,#9aa3ab);border:0;box-shadow:0 0 0 4px rgba(223,230,236,.18)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7f9"/><stop offset=".5" stop-color="#8f99a2"/><stop offset="1" stop-color="#d9dfe4"/></linearGradient>
+    <symbol id="car" viewBox="0 0 220 90">
+      <path class="car-line" d="M10 62 Q10 50 26 47 L58 42 Q80 18 112 18 Q146 18 162 40 L194 47 Q210 50 210 62 L210 67 L10 67 Z"/>
+      <path class="car-line" d="M70 42 Q86 26 112 26 Q138 26 150 42 Z"/>
+      <circle class="car-line" cx="55" cy="67" r="13"/><circle class="car-line" cx="165" cy="67" r="13"/>
+    </symbol>
+  <symbol id="front" viewBox="0 0 220 90"><path class="car-line" d="M52 70V44Q56 28 72 24H148Q164 28 168 44V70Z"/><path class="car-line" d="M66 44H154"/><ellipse class="car-line" cx="74" cy="53" rx="11" ry="5"/><ellipse class="car-line" cx="146" cy="53" rx="11" ry="5"/><rect class="car-line" x="94" y="52" width="32" height="10" rx="3"/><rect class="car-line" x="46" y="66" width="10" height="16" rx="3"/><rect class="car-line" x="164" y="66" width="10" height="16" rx="3"/></symbol>
+    <symbol id="rear" viewBox="0 0 220 90"><path class="car-line" d="M52 70V46Q56 30 76 26H144Q164 30 168 46V70Z"/><path class="car-line" d="M70 40Q110 30 150 40"/><path class="car-line" d="M60 52H98M122 52H160"/><rect class="car-line" x="94" y="58" width="32" height="8" rx="2"/><rect class="car-line" x="46" y="66" width="10" height="16" rx="3"/><rect class="car-line" x="164" y="66" width="10" height="16" rx="3"/></symbol>
+    <symbol id="cabin" viewBox="0 0 220 90"><path class="car-line" d="M16 30Q110 4 204 30"/><circle class="car-line" cx="110" cy="52" r="26"/><circle class="car-line" cx="110" cy="52" r="7"/><path class="car-line" d="M84 52H103M117 52H136M110 59V78"/></symbol>
+    <symbol id="gauge" viewBox="0 0 220 90"><path class="car-line" d="M76 70A36 36 0 1 1 144 70"/><path class="car-line" d="M110 54L132 32"/><circle class="car-line" cx="110" cy="54" r="4"/><path class="car-line" d="M84 70H136"/></symbol>
+  </defs>
+</svg>
+
+<!-- HEADER -->
+<header id="hd" class="glass fixed inset-x-0 top-0 z-50" style="padding-top:env(safe-area-inset-top,0px);border-width:0 0 1px 0">
+  <div class="hbar mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
+    <a href="#home" class="leading-tight" aria-label="Avant Consultoria Automotiva">
+      <img src="logo.png" alt="Avant" class="block h-8 w-auto sm:h-10">
+      <span class="mt-1.5 block text-xs font-light tracking-[0.12em] text-[color:var(--muted)] sm:text-sm sm:tracking-[0.2em]">Consultoria Automotiva</span>
+    </a>
+    <nav class="hidden items-center gap-8 text-sm text-[color:var(--muted)] md:flex" aria-label="Principal">
+      <a class="hover:text-white" href="#home">Home</a>
+      <a class="hover:text-white" href="#garagem">Garagem</a>
+      <a class="hover:text-white" href="#sobre">Sobre a Avant</a>
+      <a class="hover:text-white" href="#contato">Contato</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a data-wa="Olá! Gostaria de falar com um consultor da Avant." target="_blank" rel="noopener" class="btn btn-outline hidden !py-2 sm:inline-flex">Falar com Consultor</a>
+      <button id="mb" class="btn btn-outline !p-2.5 md:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="mm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mm" class="hidden border-t border-[color:var(--line)] px-5 pb-4 pt-2 md:hidden" aria-label="Menu móvel">
+    <a class="block py-3 text-sm" href="#home">Home</a>
+    <a class="block py-3 text-sm" href="#garagem">Garagem</a>
+    <a class="block py-3 text-sm" href="#sobre">Sobre a Avant</a>
+    <a class="block py-3 text-sm" href="#contato">Contato</a>
+    <a data-wa="Olá! Gostaria de falar com um consultor da Avant." target="_blank" rel="noopener" class="btn btn-outline mt-2 w-full">Falar com Consultor</a>
+  </nav>
+<div id="sp" aria-hidden="true"></div>
+</header>
+
+<main style="min-height:70vh">
+<!-- HERO -->
+<section id="home" data-view="home" class="brushed relative overflow-hidden px-5 pb-16 pt-32 sm:pt-40" style="background-image:radial-gradient(70% 55% at 50% 0%,rgba(190,205,220,.13),transparent 70%),repeating-linear-gradient(90deg,rgba(255,255,255,.014) 0 1px,transparent 1px 3px)">
+  <div class="spot" aria-hidden="true"></div>
+  <div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div>
+  <div class="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.15fr_.85fr]">
+    <div>
+      <div class="rise" style="animation-delay:.1s"><h1 class="shine max-w-2xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">O carro certo para o seu bolso, sem dor de cabeça.</h1></div>
+      <p class="rise mt-6 max-w-xl text-base font-light leading-relaxed text-[color:var(--muted)] sm:text-lg" style="animation-delay:.3s">Carros selecionados nas melhores lojas parceiras, com parcela simulada antes de você decidir. Sem burocracia e com atendimento direto no WhatsApp.</p>
+    </div>
+    <div class="rise glass relative hidden rounded-3xl p-8 lg:block" style="animation-delay:.25s">
+      <h2 class="text-xl font-semibold">Quanto cabe no seu bolso?</h2>
+      <p class="mt-1 text-sm font-light text-[color:var(--muted)]">Escolha a parcela mensal e veja até que valor de carro ela chega.</p>
+      <div class="mt-6 flex items-baseline gap-2"><span id="bv" class="silver text-4xl font-bold">R$ 1.200</span><span class="text-sm text-[color:var(--muted)]">por mês</span></div>
+      <input id="bs" type="range" min="500" max="3000" step="50" value="1200" class="bs mt-5 w-full" aria-label="Parcela mensal que cabe no seu bolso">
+      <div class="mt-6 rounded-2xl border border-[color:var(--line)] p-4">
+        <p class="text-xs text-[color:var(--muted)]">Carros de até</p>
+        <p id="bp" class="silver text-3xl font-bold"></p>
+        <p id="bn" class="mt-1 text-sm text-[color:var(--muted)]"></p>
+      </div>
+      <button id="bgo" type="button" class="btn btn-solid mt-5 w-full">Ver carros nessa faixa</button>
+      <p id="bdis" class="mt-3 text-xs text-[color:var(--muted)]"></p>
+    </div>
+  </div>
+
+  <form id="hf" class="rise glass relative mx-auto mt-12 grid max-w-6xl gap-3 rounded-2xl p-4 sm:grid-cols-[1fr_auto] sm:p-5" style="animation-delay:.45s" onsubmit="return false">
+    <label class="block"><span class="mb-1.5 block text-xs text-[color:var(--muted)]">Qual carro você procura?</span>
+      <input id="hq" type="search" class="field" placeholder="Digite o modelo, por exemplo: Onix" autocomplete="off"></label>
+    <button id="hbtn" class="btn btn-solid self-end">Buscar na Garagem</button>
+  </form>
+</section>
+
+<!-- CURADORIA -->
+<section id="curadoria" data-view="home" class="px-5 py-20">
+  <div class="mx-auto max-w-6xl">
+    <div class="rv flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Curadoria da semana</h2>
+        <p class="mt-3 max-w-lg font-light text-[color:var(--muted)]">Carros econômicos e confiáveis, escolhidos em lojas parceiras e conferidos antes de chegar até você.</p>
+      </div>
+      <a href="#garagem" class="btn btn-outline">Ver toda a Garagem</a>
+    </div>
+    <div id="hwrap" class="cs-wrap rv -mx-5 mt-8 sm:mx-0" style="--cs-ms:4200ms;--d:120ms" role="region" aria-roledescription="carrossel" aria-label="Curadoria da semana">
+      <div id="hgrid" class="cs"></div>
+      <div id="hctl" class="cs-ctl">
+        <button type="button" id="hprev" class="cs-btn glass" aria-label="Carro anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div id="hdots" class="cs-dots"></div>
+        <button type="button" id="hnext" class="cs-btn glass" aria-label="Próximo carro"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- GARAGEM -->
+<section id="garagem" data-view="garagem" class="px-5 pb-20 pt-32 sm:pt-40">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="rv text-3xl font-semibold tracking-tight sm:text-4xl">Garagem</h2>
+    <p class="rv mt-3 max-w-lg font-light text-[color:var(--muted)]" style="--d:90ms">Todos os veículos disponíveis agora nas lojas parceiras. Busque pelo nome ou refine pelos filtros.</p>
+    <form id="ff" class="rv mt-8 flex flex-col gap-3 sm:flex-row" style="--d:180ms" onsubmit="return false">
+      <label class="block flex-1"><span class="sr-only">Buscar pelo nome</span>
+        <input id="gq" type="search" class="field" placeholder="Buscar pelo nome, por exemplo: Onix" autocomplete="off"></label>
+      <button type="button" id="fopen" class="btn btn-outline">Filtros <span id="fbadge" hidden class="rounded-full bg-white/90 px-2 py-0.5 text-xs text-[#0B0F12]"></span></button>
+    </form>
+    <dialog id="fdlg" aria-labelledby="fdt">
+      <div class="flex max-h-[85vh] flex-col">
+        <div class="flex items-center justify-between border-b border-[color:var(--line)] px-6 py-4">
+          <h3 id="fdt" class="text-lg font-semibold">Filtros</h3>
+          <button type="button" id="fclr" class="text-sm text-[color:var(--muted)] underline underline-offset-4 hover:text-white">Limpar tudo</button>
+        </div>
+        <div class="space-y-6 overflow-y-auto px-6 py-6">
+          <div class="grid grid-cols-2 gap-3">
+            <label class="col-span-2"><span class="lb">Marca</span><select id="fb" class="field"><option value="">Todas as marcas</option></select></label>
+            <label><span class="lb">Ano de</span><select id="fy" class="field"><option value="">Qualquer ano</option></select></label>
+            <label><span class="lb">Ano até</span><select id="fy2" class="field"><option value="">Qualquer ano</option></select></label>
+            <label><span class="lb">Preço mínimo (R$)</span><input id="pmin" inputmode="numeric" class="field" autocomplete="off"></label>
+            <label><span class="lb">Preço máximo (R$)</span><input id="pmax" inputmode="numeric" class="field" autocomplete="off"></label>
+            <label><span class="lb">Motor de</span><select id="m1" class="field"><option value="">Qualquer</option></select></label>
+            <label><span class="lb">Motor até</span><select id="m2" class="field"><option value="">Qualquer</option></select></label>
+          </div>
+          <fieldset><legend class="lb">Câmbio</legend><div id="cg-cb" class="flex flex-wrap gap-2"></div></fieldset>
+          <fieldset><legend class="lb">Tipo de carro</legend><div id="cg-car" class="flex flex-wrap gap-2"></div></fieldset>
+          <fieldset><legend class="lb">Cor</legend><div id="cg-cor" class="flex flex-wrap gap-2"></div></fieldset>
+        </div>
+        <div class="flex gap-3 border-t border-[color:var(--line)] px-6 py-4">
+          <button type="button" id="fcancel" class="btn btn-outline flex-1">Cancelar</button>
+          <button type="button" id="fapply" class="btn btn-solid flex-1">Aplicar</button>
+        </div>
+      </div>
+    </dialog>
+    <p id="gcount" class="mt-6 text-sm text-[color:var(--muted)]" aria-live="polite"></p>
+    <div id="grid" class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <div id="gnf" hidden class="glass mt-6 rounded-2xl p-8 text-center">
+      <h3 class="text-xl font-semibold">Vamos buscar este veículo para você</h3>
+      <p class="mx-auto mt-2 max-w-md font-light text-[color:var(--muted)]">Ele ainda não está na Garagem, mas a Avant localiza nas lojas parceiras. Fale com o consultor e iniciamos a busca.</p>
+      <a id="gnf-go" target="_blank" rel="noopener" class="btn btn-solid mt-6">Solicitar Busca Deste Veículo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ANUNCIO -->
+<section id="anuncio" data-view="anuncio" hidden class="px-5 pb-20 pt-28 sm:pt-32">
+  <div id="ad" class="mx-auto max-w-6xl"></div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" data-view="sobre" class="brushed border-y border-[color:var(--line)] px-5 pb-20 pt-32" style="background-color:var(--surface)">
+  <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+    <div>
+      <h2 class="rv text-3xl font-semibold tracking-tight sm:text-4xl">Consultoria de quem escolhe o carro com você.</h2>
+      <p class="rv mt-4 max-w-lg font-light leading-relaxed text-[color:var(--muted)]" style="--d:90ms">A Avant não tem estoque próprio. Isso muda tudo: a única lealdade é com o cliente. Buscamos entre as melhores lojas parceiras o carro que combina com a sua rotina e o seu orçamento.</p>
+      <dl class="mt-8 space-y-6">
+        <div class="rv perk border-l border-[color:var(--silver)]/40 pl-5" style="--d:150ms"><dt class="font-semibold">Carros bem escolhidos</dt><dd class="mt-1 text-sm font-light text-[color:var(--muted)]">Priorizamos modelos econômicos, de manutenção barata e boa revenda.</dd></div>
+        <div class="rv perk border-l border-[color:var(--silver)]/40 pl-5" style="--d:270ms"><dt class="font-semibold">Carro conferido</dt><dd class="mt-1 text-sm font-light text-[color:var(--muted)]">Avaliamos o estado e o histórico de cada carro antes de indicar para você.</dd></div>
+        <div class="rv perk border-l border-[color:var(--silver)]/40 pl-5" style="--d:390ms"><dt class="font-semibold">Sem custo adicional</dt><dd class="mt-1 text-sm font-light text-[color:var(--muted)]">Fazer negócio pela consultoria Avant não tem nenhum custo adicional para você.</dd></div>
+      </dl>
+    </div>
+
+    <div class="rv glass rounded-3xl p-6 sm:p-8" style="--d:200ms" aria-labelledby="aw">
+      <h3 id="aw" class="text-xl font-semibold">Atendimento inteligente</h3>
+      <p class="mt-1 text-sm font-light text-[color:var(--muted)]">Conte o que procura e a conversa já chega ao consultor com tudo preenchido.</p>
+      <fieldset class="mt-6"><legend class="mb-3 text-sm">Que tipo de carro você procura?</legend>
+        <div class="flex flex-wrap gap-2" data-group="tipo">
+          <button type="button" class="chip" aria-pressed="false">SUV</button><button type="button" class="chip" aria-pressed="false">Sedan</button>
+          <button type="button" class="chip" aria-pressed="false">Hatch</button><button type="button" class="chip" aria-pressed="false">Picape</button>
+        </div></fieldset>
+      <fieldset class="mt-6"><legend class="mb-3 text-sm">Qual faixa de investimento?</legend>
+        <div class="flex flex-wrap gap-2" data-group="faixa">
+          <button type="button" class="chip" aria-pressed="false">Até R$ 60 mil</button><button type="button" class="chip" aria-pressed="false">R$ 60 a 80 mil</button>
+          <button type="button" class="chip" aria-pressed="false">Acima de R$ 80 mil</button>
+        </div></fieldset>
+      <fieldset class="mt-6"><legend class="mb-3 text-sm">Pretende financiar?</legend>
+        <div class="flex flex-wrap gap-2" data-group="pgto">
+          <button type="button" class="chip" aria-pressed="false">À vista</button><button type="button" class="chip" aria-pressed="false">Financiado</button>
+          <button type="button" class="chip" aria-pressed="false">Ainda não sei</button>
+        </div></fieldset>
+      <a id="aw-go" target="_blank" rel="noopener" class="btn btn-solid mt-8 w-full">Falar com Consultor</a>
+      <p class="mt-3 text-center text-xs text-[color:var(--muted)]">Nada é salvo neste site. A mensagem só abre no seu WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" data-view="contato" class="px-5 pb-24 pt-36">
+  <div class="rv glass mx-auto max-w-4xl rounded-3xl p-8 text-center sm:p-14">
+    <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Vamos encontrar o seu próximo carro?</h2>
+    <p class="mx-auto mt-4 max-w-md font-light text-[color:var(--muted)]">Fale direto com o consultor. Sem cadastro, sem formulário, sem espera.</p>
+    <a data-wa="Olá! Gostaria de falar com um consultor da Avant." target="_blank" rel="noopener" class="btn btn-solid pulse mt-8">Falar com Consultor</a>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-[color:var(--line)] px-5 py-12">
+  <div class="rv mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <img src="logo.png" alt="Avant" class="mb-1 block h-7 w-auto">
+      <span class="block text-xs font-light text-[color:var(--muted)]">Consultoria Automotiva</span>
+      <p class="mt-4 max-w-xs text-sm font-light leading-relaxed text-[color:var(--muted)]">Curadoria, transparência e atendimento individual na compra do seu veículo.</p>
+    </div>
+    <nav class="text-sm text-[color:var(--muted)]" aria-label="Institucional">
+      <p class="mb-3 font-semibold text-[color:var(--text)]">Institucional</p>
+      <a class="block py-1 hover:text-white" href="#garagem">Garagem</a><a class="block py-1 hover:text-white" href="#sobre">Sobre a Avant</a><a class="block py-1 hover:text-white" href="#contato">Contato</a>
+    </nav>
+    <div class="text-sm text-[color:var(--muted)]">
+      <p class="mb-3 font-semibold text-[color:var(--text)]">Redes sociais</p>
+      <a class="block py-1 hover:text-white" href="#" rel="noopener">Instagram</a><a class="block py-1 hover:text-white" href="#" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <p class="mx-auto mt-10 max-w-6xl border-t border-[color:var(--line)] pt-6 text-xs leading-relaxed text-[color:var(--muted)]">Privacidade e LGPD: este site não coleta dados pessoais, não usa cookies de rastreamento e não possui formulários ou banco de dados. Ao clicar em qualquer botão de atendimento, você é levado diretamente ao WhatsApp, onde a conversa é individual e acontece por sua iniciativa. © Avant Consultoria Automotiva.</p>
+</footer>
+
+<script src="config.js"></script>
+<script type="application/json" id="cars-default">{"config": {"wa": "5500000000000", "instagram": "", "facebook": "", "ent": 30, "parcelas": 48, "taxa": 2}, "cars": [{"m": "Chevrolet", "n": "Onix LT 1.0", "y": 2022, "km": "38.200", "p": 69900, "mot": 1.0, "cb": "Manual", "car": "Hatch", "cor": "Branco", "cons": 13.8, "d": 1, "id": 1}, {"m": "Hyundai", "n": "HB20 Comfort 1.0", "y": 2021, "km": "41.000", "p": 59900, "mot": 1.0, "cb": "Manual", "car": "Hatch", "cor": "Prata", "cons": 13.5, "d": 1, "id": 2}, {"m": "Volkswagen", "n": "Polo TSI 1.0", "y": 2021, "km": "33.500", "p": 74900, "mot": 1.0, "cb": "Automático", "car": "Hatch", "cor": "Cinza", "cons": 13.0, "d": 1, "id": 3}, {"m": "Fiat", "n": "Argo Drive 1.0", "y": 2021, "km": "36.700", "p": 62900, "mot": 1.0, "cb": "Manual", "car": "Hatch", "cor": "Vermelho", "cons": 13.2, "id": 4}, {"m": "Fiat", "n": "Cronos Drive 1.3", "y": 2021, "km": "42.100", "p": 71900, "mot": 1.3, "cb": "Manual", "car": "Sedã", "cor": "Prata", "cons": 12.6, "id": 5}, {"m": "Honda", "n": "Fit EX 1.5", "y": 2017, "km": "58.000", "p": 62900, "mot": 1.5, "cb": "Automático", "car": "Hatch", "cor": "Preto", "cons": 11.9, "id": 6}, {"m": "Toyota", "n": "Etios Sedan 1.5", "y": 2018, "km": "52.400", "p": 51900, "mot": 1.5, "cb": "Manual", "car": "Sedã", "cor": "Branco", "cons": 12.1, "id": 7}, {"m": "Nissan", "n": "Versa SL 1.6", "y": 2018, "km": "49.800", "p": 58900, "mot": 1.6, "cb": "Automático", "car": "Sedã", "cor": "Cinza", "cons": 11.8, "id": 8}, {"m": "Honda", "n": "Civic LXR 2.0", "y": 2015, "km": "79.000", "p": 68900, "mot": 2.0, "cb": "Automático", "car": "Sedã", "cor": "Preto", "cons": 10.9, "id": 9}, {"m": "Toyota", "n": "Corolla XEi 2.0", "y": 2015, "km": "88.000", "p": 74900, "mot": 2.0, "cb": "Automático", "car": "Sedã", "cor": "Prata", "cons": 10.8, "id": 10}, {"m": "Renault", "n": "Duster Dynamique 1.6", "y": 2016, "km": "69.000", "p": 59900, "mot": 1.6, "cb": "Manual", "car": "SUV", "cor": "Branco", "cons": 11.2, "id": 11}, {"m": "Nissan", "n": "Kicks SV 1.6", "y": 2017, "km": "62.500", "p": 71900, "mot": 1.6, "cb": "Automático", "car": "SUV", "cor": "Cinza", "cons": 12.0, "id": 12}, {"m": "Ford", "n": "EcoSport Freestyle 1.6", "y": 2016, "km": "71.000", "p": 54900, "mot": 1.6, "cb": "Manual", "car": "SUV", "cor": "Preto", "cons": 11.5, "id": 13}]}</script>
+<script>
+// Carrega os carros de cars.json (editado em admin.html). Se não abrir, usa a cópia embutida acima.
+(async function () {
+  let d;
+  if (window.SB && SB.url && SB.key) {
+    // Supabase configurado: carros e configurações vêm do banco (se falhar, mostra a Garagem vazia, nunca carros de exemplo)
+    try {
+      const h = SB.key.startsWith("eyJ") ? {apikey:SB.key, Authorization:"Bearer " + SB.key} : {apikey:SB.key};
+      const [cr, cf] = await Promise.all([fetch(SB.url + "/rest/v1/cars?select=*&hide=eq.false&order=pos.asc,id.asc", {headers:h}), fetch(SB.url + "/rest/v1/config?select=*&id=eq.1", {headers:h})]);
+      if (!cr.ok) throw 0;
+      const rows = await cr.json(), cfg = cf.ok ? ((await cf.json())[0] || {}) : {};
+      rows.forEach(c => { c.fotos = (c.fotos || []).map(p => SB.url + "/storage/v1/object/public/fotos/" + p); });
+      d = {config:cfg, cars:rows};
+    } catch (_) { d = {config:{}, cars:[]}; }
+  } else {
+    try { const r = await fetch("cars.json?v=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw 0; d = await r.json(); }
+    catch (_) { d = JSON.parse(document.getElementById("cars-default").textContent); }
+  }
+  const list = (d.cars || []).filter(c => !c.hide);
+  list.forEach((c, i) => { c.id = c.id || i + 1; if (!(c.fotos && c.fotos.length)) delete c.fotos; });
+  if (!list.some(c => c.d)) list.slice(0, 3).forEach(c => c.d = 1);
+  window.CARS = list; window.CFG = d.config || {};
+  const el = document.createElement("script"); el.textContent = document.getElementById("app").textContent; document.body.appendChild(el);
+})();
+</script>
+<script type="text/plain" id="app">
+// WhatsApp, redes sociais e parcela vêm do cars.json (editados no admin.html)
+const WA = String(window.CFG.wa || "5500000000000").replace(/\D/g, "");
+const wa = t => "https://wa.me/" + WA + "?text=" + encodeURIComponent(t);
+document.querySelectorAll("[data-wa]").forEach(a => a.href = wa(a.dataset.wa));
+document.querySelectorAll("footer a").forEach(a => { const t = a.textContent.trim(), u = window.CFG[t.toLowerCase()]; if (u && (t === "Instagram" || t === "Facebook")) { a.href = u; a.target = "_blank"; } });
+
+const cars = window.CARS;
+const brands = ["Audi","BMW","BYD","Caoa Chery","Chevrolet","Citroën","Fiat","Ford","GWM","Honda","Hyundai","Jeep","Kia","Land Rover","Mercedes-Benz","Mini","Mitsubishi","Nissan","Peugeot","Porsche","Ram","Renault","Suzuki","Toyota","Volkswagen","Volvo"];
+const $ = id => document.getElementById(id);
+const fb = $("fb"), fy = $("fy"), fy2 = $("fy2"), gq = $("gq");
+brands.forEach(m => fb.add(new Option(m, m)));
+for (let y = 2026; y >= 2000; y--) { fy.add(new Option(y, y)); fy2.add(new Option(y, y)); }
+
+// Busca tolerante: ignora acentos, aceita apelidos (vw, gm), início de palavra e 1 letra errada
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+const alias = {vw:"volkswagen", gm:"chevrolet", chevy:"chevrolet", mercedes:"mercedes", merc:"mercedes"};
+function ed(a, b) {
+  if (a === b) return 0;
+  if (Math.abs(a.length - b.length) > 1) return 2;
+  let i = 0; while (i < a.length && a[i] === b[i]) i++;
+  const A = a.slice(i), B = b.slice(i);
+  return (A.slice(1) === B.slice(1) || A.slice(1) === B || A === B.slice(1)) ? 1 : 2;
+}
+function match(c, q) {
+  const words = norm(c.m + " " + c.n + " " + c.y).split(" ");
+  return norm(q).split(" ").filter(Boolean).map(t => alias[t] || t)
+    .every(t => words.some(w => w.startsWith(t) || (t.length >= 4 && ed(t, w) <= 1)));
+}
+
+const check = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>';
+let ANIM = true;
+const R = n => "R$ " + n.toLocaleString("pt-BR");
+// Simulação ilustrativa de financiamento: ajuste entrada, prazo e taxa conforme a realidade
+const FIN = {ent:(window.CFG.ent ?? 30) / 100, n:window.CFG.parcelas || 48, i:(window.CFG.taxa ?? 2) / 100};
+const parc = p => Math.round(p * (1 - FIN.ent) * FIN.i / (1 - Math.pow(1 + FIN.i, -FIN.n)));
+const kml = c => c.cons.toFixed(1).replace(".", ",") + " km/l";
+const PH = [["Lateral","car"],["Frente","front"],["Traseira","rear"],["Interior","cabin"],["Painel","gauge"]];
+// Para fotos reais, adicione fotos:[...] ao carro (imagens embutidas); sem isso, aparecem ilustrações
+const slides = (c, w) => (c.fotos || PH).map((x, i) => '<div class="sl' + (i ? '' : ' on') + '" style="background:radial-gradient(80% 90% at ' + (20 + i * 15) + '% 0%,rgba(190,205,220,.13),transparent 70%)">' +
+  (c.fotos ? '<img src="' + x + '" alt="" class="h-full w-full object-cover">' : '<svg viewBox="0 0 220 90" class="vcar ' + w + '" role="img" aria-label="Foto ilustrativa: ' + x[0] + '"><use href="#' + x[1] + '"/></svg>') + '</div>').join("");
+const card = (c, i) => {
+  const id = c.id, nome = c.m + " " + c.n + " " + c.y, n = (c.fotos || PH).length;
+  const msg = "Olá! Gostaria de consultar detalhes do " + nome + " (Curadoria Avant).";
+  return '<article class="card glass flex flex-col rounded-2xl p-2' + (ANIM ? ' rise' : '') + '" data-id="' + id + '" tabindex="0" style="animation-delay:' + Math.min(i, 8) * 70 + 'ms">' +
+    '<div class="ph brushed relative h-48 overflow-hidden rounded-xl">' + slides(c, "w-3/5") +
+    '<div class="dots">' + Array.from({length:n}, (_, k) => '<i class="dt' + (k ? '' : ' on') + '"></i>').join("") + '</div>' +
+    '<span class="glass absolute left-3 top-3 z-[3] inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs">' + check + 'Curadoria Verificada</span></div>' +
+    '<div class="flex flex-1 flex-col p-4"><p class="text-xs text-[color:var(--muted)]">' + c.m + '</p>' +
+    '<h3 class="mt-0.5 text-lg font-semibold">' + c.n + '</h3>' +
+    '<p class="mt-1 text-sm font-light text-[color:var(--muted)]">' + c.y + ' · ' + c.km + ' km · ' + c.mot.toFixed(1) + ' · ' + c.cb + '</p>' +
+    '<p class="silver mt-3 text-xl font-semibold">' + R(c.p) + '</p>' +
+    '<p class="mt-1 text-xs text-[color:var(--muted)]">ou ' + FIN.n + 'x de ' + R(parc(c.p)) + (c.cons ? ' · ' + kml(c) : '') + '</p>' +
+    '<a href="' + wa(msg) + '" target="_blank" rel="noopener" class="btn btn-outline mt-4 w-full">Consultar Detalhes no WhatsApp</a></div></article>';
+};
+// Curadoria: carrossel automático. O card do meio fica maior; os das pontas ficam menores, com blur leve.
+const REDUCED = matchMedia("(prefers-reduced-motion:reduce)").matches;
+const CS_MS = 4200, featured = cars.filter(c => c.d);
+let ci = 0, ct = null, csPaused = false;
+const posOf = (i, a) => { const n = featured.length; let o = ((i - a) % n + n) % n; if (o > n / 2) o -= n; return o; };
+function renderHome() {
+  $("hgrid").innerHTML = featured.map((c, i) => { const o = posOf(i, ci);
+    return '<div class="cs-item" data-i="' + i + '" data-pos="' + (Math.abs(o) <= 1 ? o : "x") + '"' + (o ? " inert" : "") + '>' + card(c, i) + '</div>'; }).join("");
+  [...$("hgrid").children].forEach((el, i) => { el._o = posOf(i, ci); });
+  $("hdots").innerHTML = featured.map((c, i) => '<button type="button" class="cd" data-i="' + i + '" aria-label="Ver ' + c.m + " " + c.n + '"><i></i></button>').join("");
+  $("hctl").hidden = featured.length < 2;
+  csUpdate(); csSchedule();
+}
+function csUpdate() {
+  [...$("hgrid").children].forEach((el, i) => {
+    const o = posOf(i, ci), vis = Math.abs(o) <= 1, set = () => { el.dataset.pos = vis ? o : "x"; el.inert = o !== 0; };
+    // Carta que "dá a volta" (esquerda -> direita) reaparece com fade em vez de cruzar por trás do card central
+    if (el._o !== undefined && vis && Math.abs(o - el._o) > 1) { el.style.transition = "none"; el.style.opacity = "0"; set(); void el.offsetWidth; el.style.transition = ""; el.style.opacity = ""; }
+    else set();
+    el._o = o;
+  });
+  const ds = [...$("hdots").children]; ds.forEach(d => d.classList.remove("on")); void $("hdots").offsetWidth;
+  ds.forEach((d, i) => { d.setAttribute("aria-current", String(i === ci)); if (i === ci) d.classList.add("on"); });
+}
+function csGo(k) { const n = featured.length; ci = ((k % n) + n) % n; csUpdate(); csSchedule(); }
+function csSchedule() {
+  clearTimeout(ct);
+  if (REDUCED || csPaused || featured.length < 2) return;
+  ct = setTimeout(() => (document.hidden || $("curadoria").hidden) ? csSchedule() : csGo(ci + 1), CS_MS);
+}
+function csReset() { csUpdate(); csSchedule(); }
+const hwrap = $("hwrap"), hgrid = $("hgrid");
+let csHov = false, csFoc = false;
+const csSync = () => { const p = csHov || csFoc; if (p === csPaused) return; csPaused = p; hwrap.classList.toggle("paused", p); if (p) clearTimeout(ct); else csReset(); };
+hwrap.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") { csHov = true; csSync(); } });
+hwrap.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") { csHov = false; csSync(); } });
+hwrap.addEventListener("focusin", e => { if (e.target.matches(":focus-visible")) { csFoc = true; csSync(); } });
+hwrap.addEventListener("focusout", e => { if (!hwrap.contains(e.relatedTarget)) { csFoc = false; csSync(); } });
+hwrap.addEventListener("keydown", e => { if (e.key === "ArrowRight") csGo(ci + 1); else if (e.key === "ArrowLeft") csGo(ci - 1); });
+$("hprev").addEventListener("click", () => csGo(ci - 1));
+$("hnext").addEventListener("click", () => csGo(ci + 1));
+$("hdots").addEventListener("click", e => { const b = e.target.closest(".cd"); if (b) csGo(+b.dataset.i); });
+// Clicar num card lateral o traz para o centro (em vez de abrir o anúncio)
+hgrid.addEventListener("click", e => {
+  const it = e.target.closest(".cs-item");
+  if (it && it.dataset.pos !== "0") { e.preventDefault(); e.stopPropagation(); if (it.dataset.pos !== "x") csGo(+it.dataset.i); }
+}, true);
+let csx = 0;
+hwrap.addEventListener("touchstart", e => { csx = e.changedTouches[0].clientX; }, {passive:true});
+hwrap.addEventListener("touchend", e => { const d = e.changedTouches[0].clientX - csx; if (Math.abs(d) > 40) csGo(ci + (d < 0 ? 1 : -1)); }, {passive:true});
+document.addEventListener("visibilitychange", () => { if (!document.hidden) csReset(); });
+// Filtros avançados: as opções saem do estoque atual
+const uniq = k => [...new Set(cars.map(c => c[k]))];
+const pills = (id, v) => $(id).innerHTML = v.map(x => '<button type="button" class="chip" aria-pressed="false">' + x + '</button>').join("");
+pills("cg-cb", uniq("cb").sort()); pills("cg-car", uniq("car").sort()); pills("cg-cor", uniq("cor").sort());
+uniq("mot").sort((a, b) => a - b).forEach(m => { $("m1").add(new Option(m.toFixed(1), m)); $("m2").add(new Option(m.toFixed(1), m)); });
+const ps = cars.map(c => c.p);
+$("pmin").placeholder = "Ex.: " + R(Math.min(...ps)); $("pmax").placeholder = "Ex.: " + R(Math.max(...ps));
+const nums = v => +String(v).replace(/\D/g, "") || 0;
+const chips = id => [...$(id).querySelectorAll('[aria-pressed="true"]')].map(b => b.textContent);
+const readUI = () => ({mk:fb.value, y1:+fy.value || 0, y2:+fy2.value || 9999, p1:nums($("pmin").value), p2:nums($("pmax").value) || Infinity, m1:+$("m1").value || 0, m2:+$("m2").value || 99, cb:chips("cg-cb"), car:chips("cg-car"), cor:chips("cg-cor")});
+function writeUI(f) {
+  fb.value = f.mk || ""; fy.value = f.y1 || ""; fy2.value = (f.y2 < 9999 && f.y2) || "";
+  $("pmin").value = f.p1 || ""; $("pmax").value = (isFinite(f.p2) && f.p2) || "";
+  $("m1").value = f.m1 || ""; $("m2").value = (f.m2 < 99 && f.m2) || "";
+  ["cb", "car", "cor"].forEach(k => $("cg-" + k).querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", String((f[k] || []).includes(b.textContent)))));
+}
+const EMPTY = {cb:[], car:[], cor:[]};
+let applied = readUI();
+const active = f => (f.mk ? 1 : 0) + ((f.y1 || f.y2 < 9999) ? 1 : 0) + ((f.p1 || isFinite(f.p2)) ? 1 : 0) + ((f.m1 || f.m2 < 99) ? 1 : 0) + (f.cb.length ? 1 : 0) + (f.car.length ? 1 : 0) + (f.cor.length ? 1 : 0);
+
+function renderGarage() {
+  const q = gq.value.trim(), f = applied;
+  const list = cars.filter(c => (!q || match(c, q)) && (!f.mk || c.m === f.mk) && c.y >= f.y1 && c.y <= f.y2 && c.p >= f.p1 && c.p <= f.p2 && c.mot >= f.m1 && c.mot <= f.m2 &&
+    (!f.cb.length || f.cb.includes(c.cb)) && (!f.car.length || f.car.includes(c.car)) && (!f.cor.length || f.cor.includes(c.cor)));
+  $("grid").innerHTML = list.map(card).join("");
+  const nf = list.length === 0, n = active(f);
+  $("gnf").hidden = !nf;
+  $("fbadge").hidden = !n; $("fbadge").textContent = n;
+  $("gcount").textContent = nf ? "" : list.length + (list.length === 1 ? " veículo disponível" : " veículos disponíveis");
+  if (nf) {
+    const bits = [];
+    if (q) bits.push(q);
+    if (f.mk) bits.push(f.mk);
+    if (f.car.length) bits.push(f.car.join(" ou "));
+    if (f.cor.length) bits.push("cor " + f.cor.join(" ou "));
+    if (f.y1 || f.y2 < 9999) bits.push("ano " + (f.y1 || 2000) + " a " + (f.y2 < 9999 ? f.y2 : 2026));
+    if (f.p1 || isFinite(f.p2)) bits.push("preço " + (f.p1 ? "de " + R(f.p1) + " " : "") + (isFinite(f.p2) ? "até " + R(f.p2) : ""));
+    $("gnf-go").href = wa("Olá! Estou procurando " + (bits.join(", ") || "um veículo") + " e não encontrei na Garagem da Avant. Podem buscar para mim?");
+  }
+}
+gq.addEventListener("input", () => { ANIM = false; renderGarage(); ANIM = true; });
+const dlg = $("fdlg"), back = () => writeUI(applied);
+$("fopen").addEventListener("click", () => { back(); dlg.showModal(); });
+$("fapply").addEventListener("click", () => { applied = readUI(); dlg.close(); renderGarage(); });
+$("fcancel").addEventListener("click", () => { back(); dlg.close(); });
+dlg.addEventListener("cancel", back);
+dlg.addEventListener("click", e => { if (e.target === dlg) { back(); dlg.close(); } else { const b = e.target.closest(".chip"); if (b) b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); } });
+$("fclr").addEventListener("click", () => writeUI(EMPTY));
+$("hbtn").addEventListener("click", () => { gq.value = $("hq").value; writeUI(EMPTY); applied = readUI(); renderGarage(); showView("garagem"); });
+$("hq").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("hbtn").click(); } });
+$("home").addEventListener("mousemove", e => {
+  const h = e.currentTarget, r = h.getBoundingClientRect();
+  h.style.setProperty("--mx", (e.clientX - r.left) + "px"); h.style.setProperty("--my", (e.clientY - r.top) + "px");
+  h.style.setProperty("--px", ((e.clientX - r.left) / r.width - .5).toFixed(3)); h.style.setProperty("--py", ((e.clientY - r.top) / r.height - .5).toFixed(3));
+});
+$("home").addEventListener("mouseleave", e => { e.currentTarget.style.setProperty("--px", 0); e.currentTarget.style.setProperty("--py", 0); });
+
+// Abas e anúncios: cada item do menu e cada carro abre uma página própria
+const views = ["home", "garagem", "sobre", "contato", "anuncio"];
+let prev = "garagem", gi = 0, gcar = null;
+const chev = d => '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
+const simScore = (a, b) => Math.max(0, 1 - Math.abs(a.p - b.p) / a.p * 2.5) * 50 + (a.car === b.car ? 25 : 0) + Math.max(0, 15 - Math.abs(a.y - b.y) * 3) + (a.m === b.m ? 10 : 0) + (a.cb === b.cb ? 5 : 0) + Math.max(0, 5 - Math.abs(a.mot - b.mot) * 5);
+const similar = c => cars.filter(x => x !== c).map(x => [x, simScore(c, x)]).sort((a, b) => b[1] - a[1]).slice(0, 3).map(a => a[0]);
+
+function renderAd(i) {
+  const c = cars.find(x => x.id === i); gcar = c; gi = 0;
+  const nome = c.m + " " + c.n + " " + c.y, n = (c.fotos || PH).length;
+  const w = t => wa("Olá! " + t + " " + nome + " (Curadoria Avant).");
+  const specs = [["Ano", c.y], ["Quilometragem", c.km + " km"], ["Motor", c.mot.toFixed(1)], ["Câmbio", c.cb], ["Tipo", c.car], ["Cor", c.cor]];
+  const thumbs = (c.fotos || PH).map((x, k) => '<button type="button" class="thb" data-th="' + k + '" aria-label="Ver foto ' + (k + 1) + '" aria-current="' + (k === 0) + '">' +
+    (c.fotos ? '<img src="' + x + '" alt="" class="h-full w-full object-cover">' : '<svg viewBox="0 0 220 90" class="w-full"><use href="#' + x[1] + '"/></svg>') + '</button>').join("");
+  $("ad").innerHTML =
+    '<a href="#' + prev + '" class="mb-6 inline-flex items-center gap-2 text-sm text-[color:var(--muted)] hover:text-white">' + chev("M15 18l-6-6 6-6") + 'Voltar à ' + (prev === "home" ? "Home" : "Garagem") + '</a>' +
+    '<div class="grid gap-8 lg:grid-cols-[1.35fr_1fr]"><div class="rise">' +
+    '<div class="gm ph brushed relative aspect-[16/10] overflow-hidden rounded-2xl border border-[color:var(--line)]">' + slides(c, "w-[58%]") +
+    '<button type="button" class="arw glass left-3" data-nx="-1" aria-label="Foto anterior">' + chev("M15 18l-6-6 6-6") + '</button>' +
+    '<button type="button" class="arw glass right-3" data-nx="1" aria-label="Próxima foto">' + chev("M9 18l6-6-6-6") + '</button>' +
+    '<span class="glass absolute left-3 top-3 z-[3] inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs">' + check + 'Curadoria Verificada</span>' +
+    '<span id="gcn" class="glass absolute bottom-3 right-3 z-[3] rounded-full px-3 py-1 text-xs"></span></div>' +
+    '<div class="mt-3 grid grid-cols-5 gap-2">' + thumbs + '</div></div>' +
+    '<div class="rise glass self-start rounded-2xl p-6 sm:p-8" style="animation-delay:.12s"><p class="text-xs text-[color:var(--muted)]">' + c.m + '</p>' +
+    '<h1 class="shine mt-1 text-3xl font-semibold leading-tight sm:text-4xl">' + c.n + '</h1>' +
+    '<p class="mt-1 font-light text-[color:var(--muted)]">' + c.y + ' · ' + c.km + ' km</p>' +
+    '<p class="silver mt-5 text-4xl font-bold tabular-nums" data-count="' + c.p + '">' + R(c.p) + '</p>' +
+    '<div class="mt-5 grid grid-cols-2 gap-2 text-center">' + [["Parcela estimada", FIN.n + "x " + R(parc(c.p))]].concat(c.cons ? [["Consumo médio", kml(c)]] : []).concat(c.laudo ? [["Laudo cautelar", "Aprovado"]] : []).map(x => '<div class="rounded-xl border border-[color:var(--line)] p-3"><p class="text-[11px] text-[color:var(--muted)]">' + x[0] + '</p><p class="mt-1 text-sm font-semibold">' + x[1] + '</p></div>').join("") + '</div>' +
+    '<p class="mt-2 text-xs text-[color:var(--muted)]">Simulação com entrada de ' + Math.round(FIN.ent * 100) + '%, ' + FIN.n + ' parcelas e taxa média de ' + String(+(FIN.i * 100).toFixed(2)).replace('.', ',') + '% ao mês, sujeita à análise de crédito.</p>' +
+    '<dl class="mt-6 grid grid-cols-2 gap-4 border-t border-[color:var(--line)] pt-6">' + specs.map(x => '<div><dt class="text-xs text-[color:var(--muted)]">' + x[0] + '</dt><dd class="font-medium">' + x[1] + '</dd></div>').join("") + '</dl>' +
+    '<div class="mt-8 flex flex-col gap-3"><a href="' + w("Gostaria de simular o financiamento do") + '" target="_blank" rel="noopener" class="btn btn-solid">Simular Financiamento</a>' +
+    '<a href="' + w("Gostaria de verificar a disponibilidade do") + '" target="_blank" rel="noopener" class="btn btn-outline">Verificar Disponibilidade</a>' +
+    '<a href="' + w("Gostaria de saber mais sobre o") + '" target="_blank" rel="noopener" class="btn btn-outline">Falar com Consultor</a></div></div></div>' +
+    '<div class="mt-16"><h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Opções similares</h2>' +
+    '<p class="mt-2 text-sm font-light text-[color:var(--muted)]">Selecionadas pela Avant por faixa de preço, tipo de carro e ano parecidos com este.</p>' +
+    '<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">' + similar(c).map(card).join("") + '</div></div>';
+  setSlide(0);
+  document.querySelectorAll("#ad [data-count]").forEach(countUp);
+}
+// Preço "sobe" até o valor ao abrir o anúncio
+function countUp(el) {
+  const to = +el.dataset.count; if (REDUCED) return;
+  const t0 = performance.now(), D = 900;
+  (function f(t) { const k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 3); el.textContent = R(k >= 1 ? to : Math.round(to * e / 100) * 100); if (k < 1) requestAnimationFrame(f); })(t0);
+}
+function setSlide(k) {
+  const n = (gcar.fotos || PH).length; gi = (k + n) % n;
+  document.querySelectorAll("#ad .gm .sl").forEach((x, j) => x.classList.toggle("on", j === gi));
+  document.querySelectorAll("#ad .thb").forEach((x, j) => x.setAttribute("aria-current", String(j === gi)));
+  $("gcn").textContent = (gi + 1) + " / " + n + (gcar.fotos ? "" : " · " + PH[gi][0]);
+}
+$("ad").addEventListener("click", e => {
+  const t = e.target.closest("[data-th]"), a = e.target.closest("[data-nx]");
+  if (t) setSlide(+t.dataset.th); if (a) setSlide(gi + +a.dataset.nx);
+});
+let sx = 0;
+$("ad").addEventListener("touchstart", e => { sx = e.changedTouches[0].clientX; }, {passive:true});
+$("ad").addEventListener("touchend", e => { const d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 40 && e.target.closest(".gm")) setSlide(gi + (d < 0 ? 1 : -1)); }, {passive:true});
+document.addEventListener("keydown", e => {
+  if (!$("anuncio").hidden && !dlg.open && (e.key === "ArrowRight" || e.key === "ArrowLeft")) setSlide(gi + (e.key === "ArrowRight" ? 1 : -1));
+  if (e.key === "Enter" && e.target.matches && e.target.matches(".card")) goTo("carro-" + e.target.dataset.id);
+});
+
+// Prévia: ao passar o mouse na miniatura, as fotos do anúncio correm conforme a posição do cursor
+function setOn(ph, k) {
+  ph.querySelectorAll(".sl").forEach((x, i) => x.classList.toggle("on", i === k));
+  ph.querySelectorAll(".dt").forEach((x, i) => x.classList.toggle("on", i === k));
+}
+document.addEventListener("mousemove", e => {
+  const ph = e.target.closest && e.target.closest(".ph:not(.gm)"); if (!ph) return;
+  const r = ph.getBoundingClientRect(), n = ph.querySelectorAll(".sl").length;
+  setOn(ph, Math.min(n - 1, Math.max(0, Math.floor((e.clientX - r.left) / r.width * n))));
+});
+document.addEventListener("mouseout", e => {
+  const ph = e.target.closest && e.target.closest(".ph:not(.gm)");
+  if (ph && !ph.contains(e.relatedTarget)) setOn(ph, 0);
+});
+
+function goTo(v) { showView(v); try { history.replaceState(null, "", "#" + v); } catch (_) {} }
+function showView(v) {
+  const m = /^carro-(\d+)$/.exec(v || ""); let car = null;
+  if (m && cars.find(x => x.id === +m[1])) { car = +m[1]; v = "anuncio"; }
+  if (!views.includes(v) || (v === "anuncio" && car === null)) v = "home";
+  if (v === "anuncio") renderAd(car); else if (v === "home" || v === "garagem") prev = v;
+  const key = v === "anuncio" ? prev : v;
+  document.querySelectorAll("[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
+  document.querySelectorAll("header nav a").forEach(a => a.getAttribute("href") === "#" + key ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  window.scrollTo(0, 0);
+  if (v === "home") csReset();
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[href^='#']");
+  if (a) {
+    const v = a.getAttribute("href").slice(1);
+    if (views.includes(v) || /^carro-\d+$/.test(v)) { e.preventDefault(); goTo(v); }
+    return;
+  }
+  const c = e.target.closest(".card[data-id]");
+  if (c && !e.target.closest("a,button")) goTo("carro-" + c.dataset.id);
+});
+window.addEventListener("hashchange", () => showView(location.hash.slice(1)));
+// Simulador do hero: parcela que cabe no bolso vira valor máximo de carro (mesma conta da parcela dos anúncios)
+(function () {
+  const sl = $("bs"); if (!sl) return;
+  const f = FIN.i / (1 - Math.pow(1 + FIN.i, -FIN.n)), maxP = pm => Math.floor(pm / (f * (1 - FIN.ent)) / 1000) * 1000;
+  $("bdis").textContent = "Simulação com entrada de " + Math.round(FIN.ent * 100) + "%, " + FIN.n + " parcelas e taxa média de " + String(+(FIN.i * 100).toFixed(2)).replace(".", ",") + "% ao mês, sujeita à análise de crédito.";
+  function upd() {
+    const mp = maxP(+sl.value), n = cars.filter(c => c.p <= mp).length;
+    $("bv").textContent = R(+sl.value); $("bp").textContent = R(mp);
+    $("bn").textContent = n ? n + (n === 1 ? " carro" : " carros") + " na Garagem nessa faixa" : "Nenhum carro nessa faixa agora. Fale com um consultor.";
+    sl.style.setProperty("--pct", (sl.value - sl.min) / (sl.max - sl.min) * 100 + "%");
+  }
+  sl.addEventListener("input", upd); upd();
+  $("bgo").addEventListener("click", () => { writeUI(EMPTY); $("pmax").value = maxP(+sl.value); gq.value = ""; applied = readUI(); renderGarage(); showView("garagem"); });
+})();
+renderHome(); renderGarage(); showView(location.hash.slice(1));
+
+// Assistente: escolhas viram uma mensagem pré-formatada
+const sel = {};
+const go = document.getElementById("aw-go");
+function updateGo() {
+  const p = ["Olá! Quero iniciar um atendimento personalizado na Avant."];
+  if (sel.tipo) p.push("Procuro um " + sel.tipo + ".");
+  if (sel.faixa) p.push("Faixa de investimento: " + sel.faixa + ".");
+  if (sel.pgto) p.push("Forma de pagamento: " + sel.pgto + ".");
+  go.href = wa(p.join(" "));
+}
+document.querySelectorAll("[data-group]").forEach(g => g.addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  const on = b.getAttribute("aria-pressed") === "true";
+  g.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", "false"));
+  if (!on) { b.setAttribute("aria-pressed", "true"); sel[g.dataset.group] = b.textContent; } else delete sel[g.dataset.group];
+  go.classList.remove("bump"); void go.offsetWidth; go.classList.add("bump");
+  updateGo();
+}));
+updateGo();
+
+// Movimento: cabeçalho compacto, barra de progresso e entrada dos blocos ao rolar
+const hd = $("hd"); let tk = false;
+function onScroll() {
+  tk = false;
+  const y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+  hd.classList.toggle("sc", y > 24);
+  hd.style.setProperty("--sp", max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+}
+addEventListener("scroll", () => { if (!tk) { tk = true; requestAnimationFrame(onScroll); } }, {passive:true});
+addEventListener("resize", onScroll);
+if ("ResizeObserver" in window) new ResizeObserver(onScroll).observe(document.body);
+onScroll();
+const rvs = document.querySelectorAll(".rv");
+if (REDUCED || !("IntersectionObserver" in window)) rvs.forEach(el => el.classList.remove("rv"));
+else {
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target; io.unobserve(el); el.classList.add("in");
+    setTimeout(() => el.classList.remove("rv", "in"), 1300 + (parseInt(el.style.getPropertyValue("--d")) || 0));
+  }), {threshold:.12, rootMargin:"0px 0px -5% 0px"});
+  rvs.forEach(el => io.observe(el));
+}
+
+// Menu móvel
+const mb = document.getElementById("mb"), mm = document.getElementById("mm");
+mb.addEventListener("click", () => { const o = mm.classList.toggle("hidden"); mb.setAttribute("aria-expanded", String(!o)); });
+mm.addEventListener("click", e => { if (e.target.tagName === "A") { mm.classList.add("hidden"); mb.setAttribute("aria-expanded", "false"); } });
+</script>
+</body>
+</html>
